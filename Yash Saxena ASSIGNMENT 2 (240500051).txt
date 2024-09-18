@@ -1,0 +1,269 @@
+ASSIGNMENT 2
+
+NAME=> Yash Saxena
+FORM NO=> 240500051
+
+
+
+Q1)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, i;
+    bool isPrime = true;
+
+    // Input a number from the user
+    cout << "Enter a positive integer: ";
+    cin >> num;
+
+    // 0 and 1 are not prime numbers
+    if (num <= 1) {
+        isPrime = false;
+    } else {
+        // Check if the number is divisible by any number from 2 to sqrt(num)
+        for (i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+
+    // Display the result
+    if (isPrime) {
+        cout << num << " is a prime number." << endl;
+    } else {
+        cout << num << " is not a prime number." << endl;
+    }
+
+    return 0;
+}
+
+
+output)
+
+Enter a positive integer: 17
+17 is a prime number.
+
+Enter a positive integer: 18
+18 is not a prime number.
+
+
+=================================================================================================================
+
+Q2)
+
+#include <iostream>
+using namespace std;
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int N, count = 0, num = 2;
+
+    // Input number of primes to generate
+    cout << "Enter the value of N: ";
+    cin >> N;
+
+    // Generate first N prime numbers
+    cout << "The first " << N << " prime numbers are:" << endl;
+    while (count < N) {
+        if (isPrime(num)) {
+            cout << num << " ";
+            count++;
+        }
+        num++;
+    }
+
+    cout << endl;
+    return 0;
+}
+
+output)
+
+Enter the value of N: 10
+The first 10 prime numbers are:
+2 3 5 7 11 13 17 19 23 29
+
+========================================================================================================================
+
+
+Q3)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Loop for each row from 'A' to 'Z'
+    for (char i = 'A'; i <= 'Z'; i++) {
+        // Inner loop to print characters from 'A' to current row character
+        for (char j = 'A'; j <= i; j++) {
+            cout << j;
+        }
+        // Move to the next line after printing each row
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+output)
+
+A
+AB
+ABC
+ABCD
+ABCDE
+...
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+
+=========================================================================================================================
+
+Q4)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice;
+    float num1, num2, result;
+
+    do {
+        // Display the menu
+        cout << "Menu:" << endl;
+        cout << "1. Add" << endl;
+        cout << "2. Subtract" << endl;
+        cout << "3. Multiply" << endl;
+        cout << "4. Divide" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice (1-5): ";
+        cin >> choice;
+
+        // Perform the operation based on user choice
+        switch (choice) {
+            case 1:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                result = num1 + num2;
+                cout << "Result: " << result << endl;
+                break;
+            case 2:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                result = num1 - num2;
+                cout << "Result: " << result << endl;
+                break;
+            case 3:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                result = num1 * num2;
+                cout << "Result: " << result << endl;
+                break;
+            case 4:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    cout << "Result: " << result << endl;
+                } else {
+                    cout << "Error: Division by zero is not allowed." << endl;
+                }
+                break;
+            case 5:
+                cout << "Exiting the program..." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please select a valid option." << endl;
+        }
+        cout << endl;
+    } while (choice != 5);
+
+    return 0;
+}
+
+
+output)
+
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice (1-5): 1
+Enter two numbers: 10 5
+Result: 15
+
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice (1-5): 4
+Enter two numbers: 10 2
+Result: 5
+
+Menu:
+1. Add
+2. Subtract
+3. Multiply
+4. Divide
+5. Exit
+Enter your choice (1-5): 5
+Exiting the program...
+
+
+===============================================================================================
+
+Q5)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+
+    // Accept number of levels from user
+    cout << "Enter the number of levels: ";
+    cin >> N;
+
+    // Generate the pyramid
+    for (int i = 1; i <= N; i++) {
+        // Print numbers from 1 to i for each row
+        for (int j = 1; j <= i; j++) {
+            cout << j << " ";
+        }
+        // Move to the next line after each row
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+output)
+
+Enter the number of levels: 5
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+
